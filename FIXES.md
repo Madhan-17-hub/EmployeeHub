@@ -1,0 +1,21 @@
+# EmployeeHub logic fixes applied
+
+- Enforced backend role authorization with Spring Security method security.
+- Employees can only read their own assigned tasks.
+- Employees can only transition their own tasks: TODO/ASSIGNED -> IN_PROGRESS -> COMPLETED.
+- Managers/admins can create and update tasks; only admins can delete tasks.
+- Prevented user password hashes from being serialized in API responses.
+- Secured projects, departments, people, dashboard and performance endpoints by role.
+- Fixed frontend task-status API to match the JSON request body used by the backend.
+- Added real task status and priority filters.
+- Removed fake project/department/dashboard fallback data.
+- Added real deadline-this-week and overdue task counts.
+- Fixed employee project counting with a JSON projectId field while avoiding lazy serialization.
+- Added project lazy-relation JSON protection.
+- Added project/date/progress validation and manager-role validation.
+- Added task assignment validation so tasks are assigned only to employees.
+- Added 401 handling in the Axios client.
+- Added frontend route guards for role-restricted pages.
+- Replaced hardcoded Performance metrics with live task-derived metrics.
+- Updated the SQL schema so tasks.actual_hours is DOUBLE, matching Java Double.
+- Updated the seeder to safely upsert the four demo accounts.
